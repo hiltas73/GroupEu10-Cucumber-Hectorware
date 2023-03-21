@@ -29,6 +29,22 @@ public class HectorwarePage_Kreso {
     @FindBy(xpath = "(//div[@class='set-status-modal__header'])[1]")
     public WebElement onlineStatus;
 
+    @FindBy(xpath = "(//div[@class='user-status-online-select'])[1]")
+    public WebElement onlineButton;
+
+    @FindBy(xpath = "(//div[@class='user-status-online-select'])[2]")
+    public WebElement awayButton;
+
+    @FindBy(xpath = "//button[@class='action-item action-item--single header-close icon-close undefined undefined has-tooltip']")
+    public WebElement xButton;
+
+    @FindBy(xpath = "(//div[@class='user-status-online-select'])[3]")
+    public WebElement doNotDisturbButton;
+
+    @FindBy(xpath = "(//div[@class='user-status-online-select'])[4]")
+    public WebElement invisibleButton;
+
+
 
 
 }
