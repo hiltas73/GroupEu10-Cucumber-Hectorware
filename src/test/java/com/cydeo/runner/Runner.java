@@ -11,11 +11,10 @@ import org.junit.runner.RunWith;
                 "html:target/cucumber/report.html"
         },
 
-
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
         dryRun = false,
-        tags = "@wip"//when u push codes, please leave empty, with no tag
+        tags = "" //when u push codes, please leave empty, with no tag
 
 
 )
