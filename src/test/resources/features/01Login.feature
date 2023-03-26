@@ -1,4 +1,6 @@
+
 Feature: login function
+
   Scenario: Login with valid credentials
     Given user navigates to the URL
     When user enters valid username
