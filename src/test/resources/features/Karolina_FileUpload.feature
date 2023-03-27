@@ -1,6 +1,10 @@
 Feature: File upload
-  User story: As a user, I'd like to be able to upload a file so that I can share them with other app users.
-
+  	#*User story:*
+	#
+	#As a user, I'd like to be able to upload a file so that I can share them with other app users.
+	#
+	#*AC1:* A user should be able to upload a file of a maximum size of 5 MB.
+  @HECWARE10-108
   Background: User is logged in with valid credentials
     Given user is successfully logged in
 
@@ -19,6 +23,7 @@ Feature: File upload
       | C:\Users\Karolina\Desktop\File_upload\PNG_3MB.png            | 2.82 MB  | PNG_3MB            |
 
   @Ignore
+    #TODO bug HECWARE10-28
   Scenario Outline: User shouldn’t be able to upload a file whose size exceeds 5 MB
     When user hovers over Files module
     And user clicks on Files module
