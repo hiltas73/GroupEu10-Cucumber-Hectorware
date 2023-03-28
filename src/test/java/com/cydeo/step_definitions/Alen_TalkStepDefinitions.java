@@ -6,16 +6,20 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class Alen_TalkStepDefinitions {
 
     Alen_TalkPage alenTalkPage = new Alen_TalkPage();
-
+/*
     @Given("User navigates to the URL")
     public void user_navigates_to_the_url() {
         Driver.getDriver().get("https://qa.hectorware.com/index.php/apps/spreed/");
     }
-
+*/
     @When("User click Talk button")
     public void user_click_talk_button() {
         alenTalkPage.TalkModule.click();
@@ -37,21 +41,24 @@ public class Alen_TalkStepDefinitions {
     }
 
     @When("User enter alphanumerical characters between {int} and {int} chars")
-    public void user_enter_alphanumerical_characters_between_and_chars(Integer int1, Integer int2) {
+    public void user_enter_alphanumerical_characters_between_and_chars(Integer int1, Integer int2)  {
         alenTalkPage.inputCharacters.clear();
-        alenTalkPage.inputCharacters.sendKeys("Employee12345");
+        alenTalkPage.inputCharacters.sendKeys("Employee");
+
     }
 
     @When("User click small arrow")
     public void user_click_small_arrow() {
         alenTalkPage.smallArrow.click();
 
+
     }
 
     @Then("User should verify edited conversation name")
-    public void user_should_verify_edited_conversation_name() {
+    public void user_should_verify_edited_conversation_name() throws InterruptedException {
+       Thread.sleep(7000);
         String actual = alenTalkPage.VerifyList.getText();
-        String expected = "Employee12345";
+        String expected = "Employee";
         Assert.assertEquals(expected, actual);
     }
 
