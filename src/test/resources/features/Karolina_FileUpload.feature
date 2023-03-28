@@ -1,10 +1,6 @@
 Feature: File upload
-  	#*User story:*
-	#
-	#As a user, I'd like to be able to upload a file so that I can share them with other app users.
-	#
-	#*AC1:* A user should be able to upload a file of a maximum size of 5 MB.
-  @HECWARE10-108
+  User story: As a user, I'd like to be able to upload a file so that I can share them with other app users.
+
   Background: User is logged in with valid credentials
     Given user is successfully logged in
 

@@ -101,9 +101,7 @@ public class Karolina_FileUpload_StepDefinitions {
             Assert.assertTrue(filesPage.errorMessage.isDisplayed());
         } catch (NoSuchElementException e) {
             //I need to delete the uploaded files after assertion, because when running tests for the second time, the file will already be uploaded, therefore the app will not handle uploading again without some additional steps from the user
-            filesPage.headerCheckbox.click();
-            filesPage.actionButton.click();
-            filesPage.deleteButton.click();
+            filesPage.deleteAllUploadedFiles();
             System.out.println("The message is NOT displayed, the app has a bug here!");
             e.printStackTrace();
         }

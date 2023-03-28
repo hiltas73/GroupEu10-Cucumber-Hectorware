@@ -52,6 +52,11 @@ public class KarolinaFilesPage {
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
 
+    public void deleteAllUploadedFiles() {
+        headerCheckbox.click();
+        actionButton.click();
+        deleteButton.click();
+    }
 }
 
 
