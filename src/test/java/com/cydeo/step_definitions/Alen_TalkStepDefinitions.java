@@ -14,12 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class Alen_TalkStepDefinitions {
 
     Alen_TalkPage alenTalkPage = new Alen_TalkPage();
-/*
-    @Given("User navigates to the URL")
-    public void user_navigates_to_the_url() {
-        Driver.getDriver().get("https://qa.hectorware.com/index.php/apps/spreed/");
-    }
-*/
+
     @When("User click Talk button")
     public void user_click_talk_button() {
         alenTalkPage.TalkModule.click();

@@ -6,7 +6,6 @@ Feature: Edit function
     When user enters valid username
     And user enters valid password
     And user clicks on login button
-    ##Given User navigates to the URL
    When User click Talk button
     And User click and conversation name under conversation list
     And User click three little dots right next to start call
