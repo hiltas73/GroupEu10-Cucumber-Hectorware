@@ -1,4 +1,7 @@
-Feature: login function
+Feature: Login feature
+
+#As a user I should be able to login with valid credentials
+  @HECWARE10-114
   Scenario: Login with valid credentials
     Given user navigates to the URL
     When user enters valid username
