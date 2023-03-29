@@ -1,4 +1,4 @@
-@wip
+
 Feature: Online Status feature
 
   User Story:

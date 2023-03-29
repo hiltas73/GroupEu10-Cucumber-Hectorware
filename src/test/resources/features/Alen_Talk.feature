@@ -2,7 +2,10 @@
 Feature: Edit function
 
   Scenario: User can rename conversation
-    Given User navigates to the URL
+    Given user navigates to the URL
+    When user enters valid username
+    And user enters valid password
+    And user clicks on login button
    When User click Talk button
     And User click and conversation name under conversation list
     And User click three little dots right next to start call
