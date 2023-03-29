@@ -1,4 +1,4 @@
-@wip
+
 Feature: Edit function
 
   Scenario: User can rename conversation

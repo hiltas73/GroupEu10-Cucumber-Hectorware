@@ -38,7 +38,7 @@ public class Alen_TalkStepDefinitions {
     @When("User enter alphanumerical characters between {int} and {int} chars")
     public void user_enter_alphanumerical_characters_between_and_chars(Integer int1, Integer int2)  {
         alenTalkPage.inputCharacters.clear();
-        alenTalkPage.inputCharacters.sendKeys("Employee");
+        alenTalkPage.inputCharacters.sendKeys("Employee12345");
 
     }
 
@@ -53,7 +53,7 @@ public class Alen_TalkStepDefinitions {
     public void user_should_verify_edited_conversation_name() throws InterruptedException {
        Thread.sleep(7000);
         String actual = alenTalkPage.VerifyList.getText();
-        String expected = "Employee";
+        String expected = "Employee12345";
         Assert.assertEquals(expected, actual);
     }
 
