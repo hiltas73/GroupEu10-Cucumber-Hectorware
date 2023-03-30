@@ -150,5 +150,4 @@ public class OnlineStatus_StepDefinitions_Kreso {
         //System.out.println("====Closing browser using cucumber @After");
         // System.out.println("====Scenario ended/ Take screenshot if failed");
     }
-
 }

@@ -34,6 +34,8 @@ public class LoginStepDefinitions {
     public void user_clicks_on_login_button() {
     loginPage.LoginButton.click();
     }
+
+
     @Then("any user should verify the home page")
     public void any_user_should_verify_the_home_page() {
         String actualTitle = Driver.getDriver().getTitle();
