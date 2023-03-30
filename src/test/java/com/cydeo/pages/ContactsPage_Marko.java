@@ -19,7 +19,7 @@ public class ContactsPage_Marko {
     @FindBy(xpath = "//button[@id='new-contact-button']")
     public WebElement newContact;
 
-    @FindBy(xpath = "//input[@id='contact-fullname']")
+    @FindBy(id = "contact-fullname")
     public WebElement newContact2;
 
     @FindBy(xpath = "//input[@inputmode='tel']")
@@ -27,5 +27,8 @@ public class ContactsPage_Marko {
 
     @FindBy(xpath = "//input[@class='property__value']")
     public WebElement email;
+
+    @FindBy(xpath = "//*[@id=\"contacts-list\"]/div[1]//div//*[contains(text(), 'Majstor Pero')]")
+    public WebElement contactsList;
 
 }

@@ -12,4 +12,4 @@ Feature: contacts function
     And user put the first and last name in the box
     And user enter digit number in phone empty box
     And user enter email address in empty box
-    And verify email of the contact
+    And verify that name of the contact

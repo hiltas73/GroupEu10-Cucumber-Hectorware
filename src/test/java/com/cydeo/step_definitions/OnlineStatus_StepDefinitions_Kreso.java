@@ -133,7 +133,7 @@ public class OnlineStatus_StepDefinitions_Kreso {
 
     }
 
-    @After
+    /*@After
     public void teardownScenario(Scenario scenario){
 
         //scenario.isFailed() --> if scenario fails this method will return TRUE boolean value
@@ -150,5 +150,5 @@ public class OnlineStatus_StepDefinitions_Kreso {
         //System.out.println("====Closing browser using cucumber @After");
         // System.out.println("====Scenario ended/ Take screenshot if failed");
     }
-
+*/
 }
