@@ -32,4 +32,7 @@ public Alen_TalkPage(){
 
 @FindBy (xpath = "(//span[@class='acli__content__line-one__title'])[1]")
     public WebElement VerifyList;
+
+ @FindBy(xpath = "//ul[@class='conversations']")
+    public WebElement ConversationList;
 }
