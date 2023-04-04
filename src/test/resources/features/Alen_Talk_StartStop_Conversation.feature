@@ -9,7 +9,7 @@ Feature: Default
 	#{color:#de350b}*AC:*{color}
 	#
 	#User can start and stop any conversation
-	@HECWARE10-129 @wip
+	@HECWARE10-129
 	Scenario: Talk Functionality - User can start and stop conversation_Alen_Cucumber
 		Given user navigates to the url
 		And user click Talk button
