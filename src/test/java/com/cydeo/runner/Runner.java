@@ -17,7 +17,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
         dryRun = false,
-        tags = "@HECWARE10-122" //when u push codes, please leave empty, with no tag
+        tags = "" //when u push codes, please leave empty, with no tag
 )
 
 

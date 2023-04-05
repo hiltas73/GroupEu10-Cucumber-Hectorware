@@ -14,7 +14,7 @@ public class DeleteFilePage_Fatma {
 
     @FindBy(xpath = "(//table[@id='filestable'])[1]//span[.='Day13Notes']")
     public WebElement file;
-    
+
     @FindBy (xpath = "//a[.='All files']\n")
     public WebElement allFilesBtn;
 
