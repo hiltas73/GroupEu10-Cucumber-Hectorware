@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
 
         features = "src/test/resources/features",
         glue = "com/cydeo/step_definitions",
-        dryRun = true,
-        tags = "@smoke" //when u push codes, please leave empty, with no tag
+        dryRun = false,
+        tags = "" //when u push codes, please leave empty, with no tag
 )
 
 
