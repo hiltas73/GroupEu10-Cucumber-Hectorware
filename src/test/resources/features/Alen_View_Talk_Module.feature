@@ -6,7 +6,7 @@ Feature: Default
 	#
 	#{color:#de350b}*AC:*{color}
 	#Display all conversation lists under the Talk module
-	@HECWARE10-120
+	@HECWARE10-120 @smoke
 	Scenario: User can see Talk Functionality_Alen_cucumber
 		Given user navigates to the url
 		When user click Talk button
