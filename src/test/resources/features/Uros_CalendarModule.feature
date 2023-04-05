@@ -22,7 +22,7 @@ Feature:Calendar module
     And verifies that view has changed to the week interface
     Then user chooses view by month
     And verifies that view has changed to the month interface
-
+@smoke
   Scenario Outline: User can create a new event and update any event
     Then user clicks on a calendar module icon
     And user clicks on the New Event button

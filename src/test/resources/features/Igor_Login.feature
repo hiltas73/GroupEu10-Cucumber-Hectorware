@@ -2,7 +2,7 @@ Feature: Hectorware app login feature
   User story:
   As a user, I should be able to log in with valid credentials so that I can use the app
 
-
+@smoke
   Scenario: login with valid credentials
     Given Navigate to URL
     When Enter valid username in username field
