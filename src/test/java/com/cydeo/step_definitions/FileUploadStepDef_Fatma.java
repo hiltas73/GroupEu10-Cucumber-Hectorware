@@ -38,7 +38,7 @@ public class FileUploadStepDef_Fatma {
     public void the_uploaded_file_should_be_visible_on_the_files_page() {
         BrowserUtils.sleep(2);
         Assert.assertTrue(this.uploadFilePage.file.isDisplayed());
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
     }
 }
