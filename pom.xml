@@ -30,7 +30,7 @@
                     <perCoreThreadCount>false</perCoreThreadCount>
                     <testFailureIgnore>true</testFailureIgnore>
                     <includes>
-                        <include>*/CukesRunner.java</include>
+                        <include>*/Runner.java</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -90,11 +90,6 @@
             <version>1.0.2</version>
         </dependency>
 
-
-
-
     </dependencies>
-
-
 
 </project>
