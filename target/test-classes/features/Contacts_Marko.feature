@@ -1,4 +1,4 @@
-@wip
+
 Feature: contacts function
   Scenario:
     Given user navigates to the URL
