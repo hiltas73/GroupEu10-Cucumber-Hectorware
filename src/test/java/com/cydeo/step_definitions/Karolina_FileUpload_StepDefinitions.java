@@ -1,6 +1,8 @@
 package com.cydeo.step_definitions;
 
-import com.cydeo.pages.KarolinaFilesPage;
+import com.cydeo.pages.Karolina_FilesPage;
+import com.cydeo.pages.LoginHalimPage;
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.ConfigurationReader;
 import com.cydeo.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -12,22 +14,18 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.*;
-import java.awt.datatransfer.StringSelection;
-import java.awt.event.KeyEvent;
-import java.util.concurrent.TimeUnit;
-
 public class Karolina_FileUpload_StepDefinitions {
 
-    KarolinaFilesPage filesPage = new KarolinaFilesPage();
+    LoginHalimPage loginPage = new LoginHalimPage();
+    Karolina_FilesPage filesPage = new Karolina_FilesPage();
     Actions actions = new Actions(Driver.getDriver());
+
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 
     @Given("user is successfully logged in")
     public void user_is_successfully_logged_in() {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        Driver.getDriver().findElement(By.id("user")).sendKeys("Employee222");
-        Driver.getDriver().findElement(By.id("password")).sendKeys("Employee123");
-        Driver.getDriver().findElement(By.id("submit-form")).click();
+        loginPage.login("Employee222", "Employee123");
     }
 
     @When("user hovers over Files module")
@@ -38,11 +36,6 @@ public class Karolina_FileUpload_StepDefinitions {
     @When("user clicks on Files module")
     public void user_clicks_on_files_module() {
         filesPage.filesModule.click();
-    }
-
-    @When("user clicks on All files folder from the left navigation menu")
-    public void user_clicks_on_all_files_folder_from_the_left_navigation_menu() {
-        filesPage.allFilesFolder.click();
     }
 
     @When("user clicks on + button")
@@ -56,38 +49,16 @@ public class Karolina_FileUpload_StepDefinitions {
     }
 
     @When("user selects a file from {string} sized {string} to upload")
-    public void user_selects_a_file_from_sized_to_upload(String fileLocation, String fileSize) throws AWTException, InterruptedException {
-        // Locate the file input field - done in the previous step
-        // Click on the file input field to trigger the file dialog - done in the previous step
-
-        // Create a new instance of the Robot class
-        Robot robot = new Robot();
-
-        // Wait for the file dialog to appear
-        Thread.sleep(1000);
-
-        // Set the file path to the clipboard
-        StringSelection filePath = new StringSelection(fileLocation);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(filePath, null);
-
-        // Simulate pressing the Ctrl + V keys to paste the file path into the file dialog
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-
-        // Simulate pressing the Enter key to submit the file dialog
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
+    public void user_selects_a_file_from_sized_to_upload(String fileLocation, String fileSize) {
+        String workingDir = System.getProperty("user.dir");
+        String srcPath = workingDir + "\\src\\" + fileLocation;
+        filesPage.hiddenUploadFileBtn.sendKeys(srcPath);
     }
 
     @Then("user should see a file {string} uploaded from {string} is displayed in All files folder")
     public void user_should_see_a_file_uploaded_from_is_displayed_in_all_files_folder(String fileName, String fileLocation) {
-        Driver.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
-        wait.until(ExpectedConditions.invisibilityOf(filesPage.progressBar));
-        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         WebElement uploadedFile = filesPage.getUploadedFiles(fileName, fileLocation);
+        wait.until(ExpectedConditions.visibilityOf(uploadedFile));
         Assert.assertTrue(uploadedFile.isDisplayed());
 
         // I need to delete the uploaded files after assertion, because when running tests for the second time, the file will already be uploaded, therefore the app will not handle uploading again without some additional steps from the user
