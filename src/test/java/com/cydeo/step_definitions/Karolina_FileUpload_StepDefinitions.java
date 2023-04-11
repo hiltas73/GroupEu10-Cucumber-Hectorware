@@ -20,7 +20,7 @@ public class Karolina_FileUpload_StepDefinitions {
     Karolina_FilesPage filesPage = new Karolina_FilesPage();
     Actions actions = new Actions(Driver.getDriver());
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 40);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 60);
 
     @Given("user is successfully logged in")
     public void user_is_successfully_logged_in() {
@@ -57,8 +57,8 @@ public class Karolina_FileUpload_StepDefinitions {
 
     @Then("user should see a file {string} uploaded from {string} is displayed in All files folder")
     public void user_should_see_a_file_uploaded_from_is_displayed_in_all_files_folder(String fileName, String fileLocation) {
+        wait.until(ExpectedConditions.visibilityOf(filesPage.getUploadedFiles(fileName, fileLocation)));
         WebElement uploadedFile = filesPage.getUploadedFiles(fileName, fileLocation);
-        wait.until(ExpectedConditions.visibilityOf(uploadedFile));
         Assert.assertTrue(uploadedFile.isDisplayed());
 
         // I need to delete the uploaded files after assertion, because when running tests for the second time, the file will already be uploaded, therefore the app will not handle uploading again without some additional steps from the user
