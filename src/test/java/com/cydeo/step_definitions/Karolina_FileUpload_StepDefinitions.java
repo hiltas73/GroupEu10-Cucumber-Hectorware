@@ -57,12 +57,14 @@ public class Karolina_FileUpload_StepDefinitions {
 
     @Then("user should see a file {string} uploaded from {string} is displayed in All files folder")
     public void user_should_see_a_file_uploaded_from_is_displayed_in_all_files_folder(String fileName, String fileLocation) {
+        wait.until(ExpectedConditions.visibilityOf(filesPage.getUploadedFiles(fileName, fileLocation)));
         WebElement uploadedFile = filesPage.getUploadedFiles(fileName, fileLocation);
-        wait.until(ExpectedConditions.visibilityOf(uploadedFile));
         Assert.assertTrue(uploadedFile.isDisplayed());
 
         // I need to delete the uploaded files after assertion, because when running tests for the second time, the file will already be uploaded, therefore the app will not handle uploading again without some additional steps from the user
-        filesPage.get3DotsByUploadedFiles(fileName, fileLocation).click();
+        WebElement dotsByUploadedFiles = filesPage.get3DotsByUploadedFiles(fileName, fileLocation);
+        wait.until(ExpectedConditions.elementToBeClickable(dotsByUploadedFiles));
+        dotsByUploadedFiles.click();
         filesPage.deleteFile.click();
     }
 
