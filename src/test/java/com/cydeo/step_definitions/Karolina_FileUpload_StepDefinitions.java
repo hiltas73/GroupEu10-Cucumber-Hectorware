@@ -20,7 +20,7 @@ public class Karolina_FileUpload_StepDefinitions {
     Karolina_FilesPage filesPage = new Karolina_FilesPage();
     Actions actions = new Actions(Driver.getDriver());
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 60);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
 
     @Given("user is successfully logged in")
     public void user_is_successfully_logged_in() {
@@ -62,7 +62,9 @@ public class Karolina_FileUpload_StepDefinitions {
         Assert.assertTrue(uploadedFile.isDisplayed());
 
         // I need to delete the uploaded files after assertion, because when running tests for the second time, the file will already be uploaded, therefore the app will not handle uploading again without some additional steps from the user
-        filesPage.get3DotsByUploadedFiles(fileName, fileLocation).click();
+        WebElement dotsByUploadedFiles = filesPage.get3DotsByUploadedFiles(fileName, fileLocation);
+        wait.until(ExpectedConditions.elementToBeClickable(dotsByUploadedFiles));
+        dotsByUploadedFiles.click();
         filesPage.deleteFile.click();
     }
 
