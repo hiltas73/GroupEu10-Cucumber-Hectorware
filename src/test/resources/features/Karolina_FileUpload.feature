@@ -3,7 +3,7 @@ Feature: File upload
 
   Background: User is logged in with valid credentials
     Given user is successfully logged in
-
+@kar
   Scenario Outline: User should be able to upload a file of a maximum size of 5 MB
     When user hovers over Files module
     And user clicks on Files module

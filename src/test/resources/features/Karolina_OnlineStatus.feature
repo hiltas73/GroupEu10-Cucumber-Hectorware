@@ -4,7 +4,7 @@ Feature: Online Status functionality - "View and Change Online Status"
   Background: User is logged in with valid credentials
     Given user is successfully logged in
 
-
+@kar
   Scenario: User should be able to see "Online", "Away", "Do not disturb" and "Invisible" displayed as status options
     When user clicks on User Profile icon
     And user clicks on Set status
@@ -13,7 +13,7 @@ Feature: Online Status functionality - "View and Change Online Status"
       | Away           |
       | Do not disturb |
       | Invisible      |
-
+@kar
   Scenario Outline: User should be able to change the online status
     When user clicks on User Profile icon
     And user clicks on Set status

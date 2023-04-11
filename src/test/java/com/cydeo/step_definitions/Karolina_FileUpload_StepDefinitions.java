@@ -20,7 +20,7 @@ public class Karolina_FileUpload_StepDefinitions {
     Karolina_FilesPage filesPage = new Karolina_FilesPage();
     Actions actions = new Actions(Driver.getDriver());
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 40);
 
     @Given("user is successfully logged in")
     public void user_is_successfully_logged_in() {
