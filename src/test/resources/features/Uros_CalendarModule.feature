@@ -11,7 +11,7 @@ Feature:Calendar module
     Then user clicks on a calendar module icon
     And user verifies the calendar module page
 
-  @wip
+
   Scenario: User can change the view by day, week, month
 
     Then user clicks on a calendar module icon
