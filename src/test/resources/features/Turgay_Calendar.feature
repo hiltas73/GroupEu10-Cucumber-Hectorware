@@ -32,26 +32,25 @@ Feature: Calendar Functionality
     And user clicks on  month button
     Then user sees the monthly calendar view
 
-
+  @wip
 
   Scenario: User should be able to create a new event
 
     When user clicks on the New Event button
-    And enters the name of the New Event as "meeting"
-    And enters the date of the event
-    And saves the event
+    And enters the name of the New Event as "CEO meeting"
+    And enters the date "30 April 2023"
+    And clicks the saves  button
     Then verifies that event is saved
 
-  @wip
 
+@wip
   Scenario Outline: User should be able to update an existing event
     When user clicks on the saved event to update
     And updates the name as "<New Event>"
-    And changes the "<New date>"
     And updates the event
     Then user verifies that event is updated.
 
     Examples:
-      | New Event | New date                      |
-      | Party    | from 04/16/2024 at 9:00 PM |
+      | New Event |
+      | Party    |
 
