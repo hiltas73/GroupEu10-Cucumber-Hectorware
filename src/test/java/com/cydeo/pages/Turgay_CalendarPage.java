@@ -13,7 +13,7 @@ public class Turgay_CalendarPage {
     @FindBy(xpath = "//ul[@id='appmenu']/li[@data-id='calendar']")
     public WebElement calendarModule;
 
-    @FindBy(xpath = "//button[@class='icon action-item__menutoggle icon-view-day']")
+    @FindBy(xpath = "(//div[@class='trigger']/button)[1]/parent::div")
     public WebElement gridTab;
 
     @FindBy(xpath = "//span[@class='action-button__icon icon-view-day']")
@@ -24,5 +24,20 @@ public class Turgay_CalendarPage {
 
     @FindBy(xpath = "//span[@class='action-button__icon icon-view-module']")
     public WebElement monthButton;
+
+    @FindBy (xpath = "//input[@placeholder='Event title']")
+    public WebElement eventName;
+
+    //a[@data-recurrence-id='1681635600']
+
+   @FindBy(xpath = "//a[@data-recurrence-id='1681635600']    ")
+    public WebElement updated1;
+
+    //a[@data-recurrence-id='1680825600']
+
+    @FindBy(xpath = " //a[@data-recurrence-id='1680825600']")
+    public WebElement event;
+
+
 
 }

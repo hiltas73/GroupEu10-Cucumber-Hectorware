@@ -3,9 +3,12 @@ Feature: Calendar Functionality
   As a user, I should be able to see Daily-Weekly-Monthly calendar view  under the Calendar GH
 
 
-  Background: User is logged in with valid credentials
-    Given  user is successfully logged in
-    Given user is on calendar module
+  Background: User is logged in with valid credentials and on the calendar module
+    Given user navigates to the URL
+    When user enters valid username
+    And user enters valid password
+    And user clicks on login button
+    And user is on calendar module
 
 
 
@@ -31,9 +34,24 @@ Feature: Calendar Functionality
 
 
 
-  Scenario: User should be able to see monthly calendar view on calendar menu
+  Scenario: User should be able to create a new event
 
-    When user clicks on grid tab
-    And user clicks on  month button
-    Then user sees the monthly calendar view
+    When user clicks on the New Event button
+    And enters the name of the New Event as "meeting"
+    And enters the date of the event
+    And saves the event
+    Then verifies that event is saved
+
+  @wip
+
+  Scenario Outline: User should be able to update an existing event
+    When user clicks on the saved event to update
+    And updates the name as "<New Event>"
+    And changes the "<New date>"
+    And updates the event
+    Then user verifies that event is updated.
+
+    Examples:
+      | New Event | New date                      |
+      | Party    | from 04/16/2024 at 9:00 PM |
 
