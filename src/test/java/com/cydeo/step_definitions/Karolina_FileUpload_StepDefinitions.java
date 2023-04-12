@@ -60,7 +60,7 @@ public class Karolina_FileUpload_StepDefinitions {
         wait.until(ExpectedConditions.visibilityOf(filesPage.getUploadedFiles(fileName, fileLocation)));
         WebElement uploadedFile = filesPage.getUploadedFiles(fileName, fileLocation);
         Assert.assertTrue(uploadedFile.isDisplayed());
-
+        BrowserUtils.sleep(5);
         // I need to delete the uploaded files after assertion, because when running tests for the second time, the file will already be uploaded, therefore the app will not handle uploading again without some additional steps from the user
         WebElement dotsByUploadedFiles = filesPage.get3DotsByUploadedFiles(fileName, fileLocation);
         wait.until(ExpectedConditions.elementToBeClickable(dotsByUploadedFiles));

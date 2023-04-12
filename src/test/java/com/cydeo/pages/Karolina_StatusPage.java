@@ -26,16 +26,35 @@ public class Karolina_StatusPage {
     @FindBy(css = "button[class='action-item action-item--single header-close icon-close undefined undefined has-tooltip']")
     public WebElement xButton;
 
-    public void selectStatusOption(String statusOption){
+    public void selectStatusOption(String statusOption) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
         wait.until(ExpectedConditions.visibilityOfAllElements(allOnlineStatuses));
         for (WebElement onlineStatus : allOnlineStatuses) {
             //to get the text of the outer element only
-            if (onlineStatus.getText().split("\n")[0].contains(statusOption)){
+            if (onlineStatus.getText().split("\n")[0].contains(statusOption)) {
                 onlineStatus.click();
                 break;
             }
         }
     }
 
+    @FindBy(css = "span[class='predefined-status__message']")
+    public List<WebElement> allStatusMessages;
+
+    @FindBy(css = "button[class='status-buttons__primary primary']")
+    public WebElement setStatusMessageButton;
+
+    @FindBy(css = "button[class='status-buttons__select']")
+    public WebElement clearStatusMessageButton;
+
+    public void selectMessage(String statusMessage) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 30);
+        wait.until(ExpectedConditions.visibilityOfAllElements(allStatusMessages));
+        for (WebElement status : allStatusMessages) {
+            if (status.getText().endsWith(statusMessage)) {
+                status.click();
+                break;
+            }
+        }
+    }
 }

@@ -14,6 +14,7 @@ Feature: Online Status functionality - "View and Change Online Status"
       | Do not disturb |
       | Invisible      |
 
+
   Scenario Outline: User should be able to change the online status
     When user clicks on User Profile icon
     And user clicks on Set status
