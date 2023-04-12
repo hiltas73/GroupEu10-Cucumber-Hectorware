@@ -56,4 +56,50 @@ public class Turgay_Calendar_StepDefinitions {
 
     }
 
+
+    @When("enters the name of the New Event as {string}")
+    public void enters_the_name_of_the_new_event_as(String string) {
+        calendarPage.eventName.sendKeys(string);
+
+    }
+
+    @Then("user verifies that event is updated.")
+    public void user_verifies_that_event_is_updated() {
+        Assert.assertTrue(calendarPage.updatedEvent.isDisplayed());
+
+    }
+
+    @Then("verifies that event is saved")
+    public void verifies_that_event_is_saved() {
+        Assert.assertTrue(calendarPage.event.isDisplayed());
+    }
+    @Then("user clicks on the saved event to update")
+    public void user_clicks_on_the_saved_event_to_update() {
+        calendarPage.event.click();
+
+    }
+
+    @When("updates the name as {string}")
+    public void updates_the_name_as(String string) {
+        calendarPage.eventName.clear();
+        calendarPage.eventName.sendKeys(string);
+
+    }
+
+    @When("clicks the saves  button")
+    public void clicks_the_saves_button() {
+        calendarPage.saveButton.click();
+
+    }
+
+    @When("enters the date {string}")
+    public void enters_the_date(String string) {
+      calendarPage.date.click();
+    }
+
+    @When("updates the date as {string}")
+    public void updates_the_date_as(String string) {
+     calendarPage.newDate.click();
+    }
+
 }
